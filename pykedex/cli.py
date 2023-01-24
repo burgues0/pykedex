@@ -3,6 +3,7 @@
 import typer
 from typing import Optional
 from pykedex import __app_name__, __version__
+from apicalls import main
 
 app = typer.Typer()
 
@@ -57,9 +58,7 @@ def typechart(
     return
 
 @app.command()
-def natures(
-
-) -> None:
+def natures() -> None:
     return
 
 @app.command()
