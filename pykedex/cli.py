@@ -1,9 +1,13 @@
 """Module that provides the Pykedex CLI"""
 
+import asyncio
+import time
+import aiopoke
 import typer
 from typing import Optional
 from pykedex import __app_name__, __version__
-from apicalls import main
+# from pykedex.pokeapicalls import fetch_nature
+
 
 app = typer.Typer()
 
@@ -59,7 +63,13 @@ def typechart(
 
 @app.command()
 def natures() -> None:
-    return
+    async def fetch_natures() -> str:
+        client = aiopoke.AiopokeClient()
+        nature = await client.get_nature(1)
+        await client.close()
+        time.sleep(0.1)
+        print(nature)
+    asyncio.run(fetch_natures())
 
 @app.command()
 def tools(
