@@ -25,3 +25,45 @@ def main(
     )
 ) -> None:
     return
+
+@app.command()
+def pokedex(
+
+) -> None:
+    return
+
+@app.command()
+def moves(
+
+) -> None:
+    return
+
+@app.command()
+def abilities(
+
+) -> None:
+    return
+
+@app.command()
+def items(
+
+) -> None:
+    return
+
+@app.command()
+def typechart(
+
+) -> None:
+    return
+
+@app.command()
+def natures(
+
+) -> None:
+    return
+
+@app.command()
+def tools(
+
+) -> None:
+    return
