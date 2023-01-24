@@ -8,7 +8,10 @@ __version__ = "0.1.0"
     API_ERROR,
     ID_ERROR,
     STRING_ERROR,
-) = range(4)
+    DB_WRITE_ERROR,
+    DIR_ERROR,
+    FILE_ERROR,
+) = range(7)
 
 ERRORS = {
     API_ERROR: "API endpoint error",

@@ -11,4 +11,5 @@ CLI Pokédex app using Python and Typer
 | abilities |
 | items |
 | typechart |
+| natures |
 | tools |
