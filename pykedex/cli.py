@@ -1,15 +1,18 @@
 """Module that provides the Pykedex CLI"""
 
-import asyncio
-import time
-import aiopoke
-import typer
+import asyncio, aiopoke, time
+import typer, json
+from pathlib import Path
 from typing import Optional
 from pykedex import __app_name__, __version__
-# from pykedex.pokeapicalls import fetch_nature
+# from rich import print
+
+
 
 
 app = typer.Typer()
+PROJECT_DIR = Path().resolve()
+JSON_CONTENT_DIR = PROJECT_DIR / "data"
 
 def _version_callback(value: bool) -> None:
     if value:
@@ -38,10 +41,8 @@ def pokedex(
     return
 
 @app.command()
-def moves(
-
-) -> None:
-    return
+def moves() -> None:
+    print("ok")
 
 @app.command()
 def abilities(
@@ -62,17 +63,17 @@ def typechart(
     return
 
 @app.command()
-def natures() -> None:
-    async def fetch_natures() -> str:
-        client = aiopoke.AiopokeClient()
-        nature = await client.get_nature(1)
-        await client.close()
-        time.sleep(0.1)
+def nature():
+    file = json.load(open(JSON_CONTENT_DIR / "natures.json"))
+    for nature in file:
         print(nature)
-    asyncio.run(fetch_natures())
 
 @app.command()
 def tools(
 
 ) -> None:
     return
+
+@app.command()
+def create(username: str):
+    print(f"Creating user: {username}")
