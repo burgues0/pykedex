@@ -1,3 +1,6 @@
 pykedex/database.py
 pykedex/config.py
 pykedex/pokeapicalls.py
+pykedex/__pycache__
+tests/__pycache__
+.pytest_cache
